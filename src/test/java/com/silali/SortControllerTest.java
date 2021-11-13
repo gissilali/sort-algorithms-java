@@ -16,6 +16,10 @@ class SortControllerTest {
 
     @Test
     void doSelectionSort() {
+        int[] unsortedArray = {20,35,-15,7,55, 1,-22};
+        int[] array = (new SortController()).doSelectionSort(unsortedArray);
+        int[] expectedArray = {-22,-15,1,7,20,35,55};
+        Assertions.assertArrayEquals(expectedArray,array);
     }
 
     @Test

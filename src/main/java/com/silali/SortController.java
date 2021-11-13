@@ -28,6 +28,31 @@ public class SortController {
     }
 
     public int[] doSelectionSort(int[] array) {
+        System.out.println(Arrays.toString(array));
+        int unsortedArrayIndex = array.length - 1;
+//        int largestValueIndex = 0;
+
+        while (unsortedArrayIndex > 0) {
+            int largestValueIndex = 0;
+            for (int i = 1; i <= unsortedArrayIndex; i++) {
+                int largestValue = array[largestValueIndex];
+                int currentValue = array[i];
+                if (currentValue != largestValue) {
+                    if (currentValue > largestValue) {
+                        largestValueIndex = i;
+                    }
+                }
+                if (i == unsortedArrayIndex) {
+                    System.out.println(unsortedArrayIndex);
+                    System.out.println(array[largestValueIndex]);
+                    largestValue = array[largestValueIndex];
+                    array[largestValueIndex] = array[unsortedArrayIndex];
+                    array[unsortedArrayIndex] = largestValue;
+                }
+            }
+            unsortedArrayIndex = unsortedArrayIndex - 1;
+        }
+        System.out.println(Arrays.toString(array));
         return array;
     }
 
