@@ -28,23 +28,28 @@ public class SortController {
     }
 
     public int[] doSelectionSort(int[] array) {
-        System.out.println(Arrays.toString(array));
+        //set the unsorted array partition to the last index
         int unsortedArrayIndex = array.length - 1;
-//        int largestValueIndex = 0;
 
+
+        // this is used to track how many passes we have left
         while (unsortedArrayIndex > 0) {
+            //set the largest value to the first index - 0
             int largestValueIndex = 0;
+            //loop through the array a complete loop is one pass
             for (int i = 1; i <= unsortedArrayIndex; i++) {
                 int largestValue = array[largestValueIndex];
                 int currentValue = array[i];
+                // get the largest value  and current value and compare them.
                 if (currentValue != largestValue) {
+                    //when the current value is larger than the largest value then we set the largestValueIndex to the currentValueIndex
                     if (currentValue > largestValue) {
                         largestValueIndex = i;
                     }
                 }
+                //check that we have reached the end of unsorted partition
                 if (i == unsortedArrayIndex) {
-                    System.out.println(unsortedArrayIndex);
-                    System.out.println(array[largestValueIndex]);
+                    //we are swapping the largest value with the last value in the unsorted  partition
                     largestValue = array[largestValueIndex];
                     array[largestValueIndex] = array[unsortedArrayIndex];
                     array[unsortedArrayIndex] = largestValue;
@@ -52,7 +57,7 @@ public class SortController {
             }
             unsortedArrayIndex = unsortedArrayIndex - 1;
         }
-        System.out.println(Arrays.toString(array));
+        
         return array;
     }
 
